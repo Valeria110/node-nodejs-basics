@@ -7,10 +7,10 @@ const filesCopyPath = join(dirname, "files_copy");
 
 const copy = async () => {
   access(filesPath, constants.F_OK, (err) => {
-    if (err) throw new Error("Folder files does not exist");
+    if (err) throw new Error("FS operation failed");
 
     access(filesCopyPath, constants.F_OK, async (err2) => {
-      if (!err2) throw new Error("Folder files_copy already exists");
+      if (!err2) throw new Error("FS operation failed");
 
       await createFilesCopyFolder();
     });

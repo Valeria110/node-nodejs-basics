@@ -1,5 +1,13 @@
+import fs from "fs";
+import path from "path";
+
+const dirname = import.meta.dirname;
+
 const read = async () => {
-    // Write your code here 
+  const readable = fs.createReadStream(
+    path.join(dirname, "files", "fileToRead.txt")
+  );
+  readable.pipe(process.stdout);
 };
 
 await read();
